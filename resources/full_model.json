@@ -1,0 +1,29 @@
+{
+  "type": "logistic_regression",
+  "features": [
+    "log_dp_mean",
+    "log_length",
+    "log_density",
+    "dp_x_length",
+    "intercept"
+  ],
+  "weights": [
+    14.573012993017493,
+    2.2231811579745355,
+    2.8095654847583655,
+    -1.5833481217886003,
+    3.7765164293821587
+  ],
+  "feature_transforms": {
+    "log_dp_mean": "log(dp_mean + 1)",
+    "log_length": "log(interval_length + 1)",
+    "log_density": "log(local_density + 1e-6)",
+    "dp_x_length": "log(dp_mean+1) * log(length+1)",
+    "intercept": "1.0"
+  },
+  "training": {
+    "n_intervals": 4380015,
+    "n_bases": 2789976811,
+    "chromosomes": "all"
+  }
+}

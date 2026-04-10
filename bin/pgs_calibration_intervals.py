@@ -418,7 +418,7 @@ def write_intervals(chrom_intervals, out_path, genome_variant_rate=0.001):
     ]
 
     n_written = 0
-    with open(out_path, "w") as fh:
+    with gzip.open(out_path + '.gz', "w") as fh:
         fh.write("\t".join(columns) + "\n")
 
         for chrom in sorted(chrom_intervals.keys(),

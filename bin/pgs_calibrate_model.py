@@ -32,7 +32,12 @@ import argparse
 import json
 import math
 import sys
+import gzip
 
+def open_maybe_gzipped(path):
+    if path.endswith(".gz"):
+        return gzip.open(path, "rt")
+    return open(path, "r")
 
 # ---------------------------------------------------------------------------
 # Data loading
@@ -41,7 +46,7 @@ import sys
 def load_intervals(path, min_length=10):
     """Load interval table, skipping very short intervals."""
     intervals = []
-    with open(path) as fh:
+    with open_maybe_gzipped(path) as fh:
         header = fh.readline().strip().split("\t")
         col = {name: i for i, name in enumerate(header)}
         for line in fh:

@@ -1,0 +1,42 @@
+{
+  "type": "logistic_regression",
+  "features": [
+    "log_dp_mean",
+    "log_length",
+    "log_density",
+    "dp_x_length",
+    "intercept"
+  ],
+  "weights": [
+    18.229051506089437,
+    0.9425013318394032,
+    2.6732039110291477,
+    -1.3229160287195842,
+    4.6936910887938295
+  ],
+  "feature_transforms": {
+    "log_dp_mean": "log(dp_mean + 1)",
+    "log_length": "log(interval_length + 1)",
+    "log_density": "log(local_density + 1e-6)",
+    "dp_x_length": "log(dp_mean+1) * log(length+1)",
+    "intercept": "1.0"
+  },
+  "training": {
+    "n_intervals": 2191689,
+    "n_bases": 1417662654,
+    "chromosomes": "odd (1,3,5,...,21)",
+    "log_loss": 0.26763444711559264
+  },
+  "test": {
+    "n_intervals": 2188326,
+    "n_bases": 1372314157,
+    "chromosomes": "even (2,4,6,...,22)",
+    "log_loss": 0.2136925390133544,
+    "auc": 0.9743646489825559
+  },
+  "baseline": {
+    "model": "hand-tuned",
+    "log_loss": 0.27423405582965915,
+    "auc": 0.9560367189324659
+  }
+}
